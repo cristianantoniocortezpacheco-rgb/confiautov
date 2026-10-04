@@ -1,151 +1,225 @@
-/* ==========================================
-   RESET Y VARIABLES GLOBALES
-========================================== */
+/* Variables CSS - Tema Claro (Default) */
+:root {
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-color: #212529;
+    --text-muted: #6c757d;
+    --navbar-bg: rgba(255, 255, 255, 0.95);
+    --primary-color: #0066cc;
+    --primary-hover: #004999;
+    --accent-color: #ff9900;
+    --border-color: #e9ecef;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    --footer-bg: #1a1a1a;
+    --footer-text: #ffffff;
+    --hero-overlay: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75));
+}
+
+/* Ocultar el checkbox toggle */
+.theme-toggle-checkbox {
+    display: none;
+}
+
+/* Reglas CSS para activar el MODO OSCURO */
+.theme-toggle-checkbox:checked ~ .navbar,
+.theme-toggle-checkbox:checked ~ .main-wrapper,
+.theme-toggle-checkbox:checked ~ footer,
+.theme-toggle-checkbox:checked ~ body {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #ffffff;      /* Letras blancas principales */
+    --text-muted: #d0d0d0;      /* Letras secundarias en blanco suave */
+    --navbar-bg: rgba(18, 18, 18, 0.95);
+    --border-color: #333333;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    --hero-overlay: linear-gradient(rgba(0, 0, 0, 0.8), rgba(18, 18, 18, 0.95));
+}
+
+/* Estilos base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root {
-    --primary: #0d47a1;
-    --primary-hover: #083275;
-    --accent: #25d366;
-    --facebook: #1877f2;
-    --bg-light: #f8fafc;
-    --text-dark: #1e293b;
-    --text-muted: #64748b;
-    --white: #ffffff;
-    --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    --transition: all 0.3s ease;
-}
-
-html {
-    scroll-behavior: smooth;
+body {
     font-family: 'Poppins', sans-serif;
-    color: var(--text-dark);
-    background-color: var(--bg-light);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ==========================================
-   NAVEGACIÓN (HEADER)
-========================================== */
+.main-wrapper {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Botón Conmutador (Theme Toggle Button) */
+.theme-toggle-btn {
+    cursor: pointer;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    user-select: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.theme-toggle-btn .icon-moon {
+    display: inline;
+}
+
+.theme-toggle-btn .icon-sun {
+    display: none;
+}
+
+/* Cambio de icono en Modo Oscuro */
+.theme-toggle-checkbox:checked ~ .navbar .theme-toggle-btn .icon-moon {
+    display: none;
+}
+
+.theme-toggle-checkbox:checked ~ .navbar .theme-toggle-btn .icon-sun {
+    display: inline;
+}
+
+/* Navegación */
 .navbar {
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
+    background-color: var(--navbar-bg);
+    backdrop-filter: blur(8px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    padding: 15px 5%;
+    box-shadow: var(--shadow);
     z-index: 1000;
+    transition: background-color 0.3s ease;
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-color);
 }
 
 .logo span {
-    color: var(--primary);
+    color: var(--primary-color);
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 1.2rem;
+    gap: 15px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-dark);
+    color: var(--text-color);
     font-weight: 500;
     font-size: 0.9rem;
-    transition: var(--transition);
+    transition: color 0.3s;
 }
 
 .nav-links a:hover {
-    color: var(--primary);
+    color: var(--primary-color);
 }
 
-.btn-wa-nav {
-    color: var(--accent) !important;
-    border: 1px solid var(--accent);
-    padding: 0.4rem 0.9rem;
-    border-radius: 20px;
-}
-
-.btn-wa-nav:hover {
-    background: var(--accent);
-    color: var(--white) !important;
-}
-
-.btn-fb-nav {
-    color: var(--facebook) !important;
-    border: 1px solid var(--facebook);
-    padding: 0.4rem 0.9rem;
-    border-radius: 20px;
-}
-
-.btn-fb-nav:hover {
-    background: var(--facebook);
-    color: var(--white) !important;
+/* Botones de navegación */
+.btn-nav, .btn-wa-nav, .btn-fb-nav {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.85rem !important;
 }
 
 .btn-nav {
-    background: var(--primary);
-    color: var(--white) !important;
-    padding: 0.5rem 1.2rem;
-    border-radius: 20px;
+    background-color: var(--primary-color);
+    color: #fff !important;
 }
 
-.btn-nav:hover {
-    background: var(--primary-hover);
+.btn-wa-nav {
+    background-color: #25d366;
+    color: #fff !important;
 }
 
-/* ==========================================
-   HERO SECTION
-========================================== */
+.btn-fb-nav {
+    background-color: #1877f2;
+    color: #fff !important;
+}
+
+/* Hero Section con Imagen de Fondo (Chevrolet Captiva 2008) */
 .hero {
-    min-height: 90vh;
-    padding: 8rem 5% 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 160px 5% 100px;
     text-align: center;
-    background: linear-gradient(135deg, #e0f2fe 0%, #f8fafc 100%);
+    background-image: var(--hero-overlay), url('img/captivaimagen.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transition: background 0.3s ease;
 }
 
-.hero-content {
-    max-width: 800px;
-}
-
-.hero h1 {
+.hero-content h1 {
     font-size: 2.8rem;
-    line-height: 1.2;
-    margin-bottom: 1.2rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.hero h1 span {
-    color: var(--primary);
+.hero-content h1 span {
+    color: var(--primary-color);
 }
 
-.hero p {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
+.hero-content p {
+    color: #e0e0e0;
+    font-size: 1.15rem;
+    max-width: 650px;
+    margin: 0 auto 30px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .hero-buttons {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 15px;
     flex-wrap: wrap;
+}
+
+.btn-primary, .btn-catalog, .btn-facebook {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-catalog {
+    background-color: #25d366;
+    color: #fff;
+}
+
+.btn-facebook {
+    background-color: #1877f2;
+    color: #fff;
+}
+
+.btn-primary:hover, .btn-catalog:hover, .btn-facebook:hover {
+    transform: translateY(-2px);
 }
 
 .icon {
@@ -154,96 +228,35 @@ html {
     fill: currentColor;
 }
 
-/* BOTONES GENERALES */
-.btn-primary {
-    background: var(--primary);
-    color: var(--white);
-    padding: 0.8rem 1.8rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    transition: var(--transition);
-    box-shadow: var(--shadow);
-}
-
-.btn-primary:hover {
-    background: var(--primary-hover);
-    transform: translateY(-2px);
-}
-
-.btn-catalog {
-    background: var(--accent);
-    color: var(--white);
-    padding: 0.8rem 1.8rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: var(--transition);
-}
-
-.btn-catalog:hover {
-    background: #1eb954;
-    transform: translateY(-2px);
-}
-
-.btn-facebook {
-    background: var(--facebook);
-    color: var(--white);
-    padding: 0.8rem 1.8rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: var(--transition);
-}
-
-.btn-facebook:hover {
-    background: #166fe5;
-    transform: translateY(-2px);
-}
-
-/* ==========================================
-   INVENTARIO / CATÁLOGO
-========================================== */
+/* Inventario */
 .inventory {
-    padding: 5rem 5%;
+    padding: 80px 5%;
 }
 
 .section-title {
     text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 3rem;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--text-color);
 }
 
 .section-title span {
-    color: var(--primary);
+    color: var(--primary-color);
 }
 
 .grid-vehicles {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 30px;
 }
 
 .card {
-    background: var(--white);
-    border-radius: 16px;
+    background-color: var(--card-bg);
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow);
-    transition: var(--transition);
-    display: flex;
-    flex-direction: column;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .card:hover {
@@ -253,7 +266,6 @@ html {
 .card-image {
     position: relative;
     height: 200px;
-    width: 100%;
 }
 
 .card-image img {
@@ -266,175 +278,158 @@ html {
     position: absolute;
     top: 15px;
     right: 15px;
-    padding: 0.3rem 0.8rem;
+    padding: 5px 12px;
     border-radius: 20px;
     font-size: 0.75rem;
     font-weight: 600;
-    color: var(--white);
+    color: #fff;
 }
 
 .badge-disponible {
-    background: var(--accent);
+    background-color: #28a745;
 }
 
 .badge-consignado {
-    background: #f59e0b;
+    background-color: var(--accent-color);
 }
 
 .card-body {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+    padding: 20px;
 }
 
 .card-body h3 {
     font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 8px;
+    color: var(--text-color);
 }
 
 .specs {
-    font-size: 0.85rem;
     color: var(--text-muted);
-    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
 }
 
 .price {
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
 }
 
 .btn-card {
-    margin-top: auto;
+    display: block;
     text-align: center;
-    background: var(--bg-light);
-    color: var(--text-dark);
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 10px;
+    border-radius: 6px;
     text-decoration: none;
-    padding: 0.7rem;
-    border-radius: 10px;
     font-weight: 600;
-    border: 1px solid #e2e8f0;
-    transition: var(--transition);
+    transition: background 0.3s, color 0.3s;
 }
 
 .btn-card:hover {
-    background: var(--primary);
-    color: var(--white);
-    border-color: var(--primary);
+    background-color: var(--primary-color);
+    color: #fff;
 }
 
-/* Tarjeta "Ver más" */
+/* Tarjeta Ver Más */
 .card-see-more {
-    background: linear-gradient(135deg, #0d47a1, #1e40af);
-    color: var(--white);
-    justify-content: center;
+    display: flex;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 2rem;
+    padding: 30px 20px;
+}
+
+.card-see-more h3 {
+    color: var(--text-color);
+}
+
+.card-see-more p {
+    color: var(--text-muted);
 }
 
 .more-icon {
     font-size: 3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
 }
 
-.card-see-more h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.8rem;
-}
-
-.card-see-more p {
-    font-size: 0.9rem;
-    opacity: 0.9;
-    margin-bottom: 1.5rem;
-}
-
-/* ==========================================
-   CONSIGNACIÓN
-========================================== */
+/* Consignación */
 .consignment {
-    padding: 5rem 5%;
-    background: #f1f5f9;
+    padding: 80px 5%;
+    background-color: var(--card-bg);
     text-align: center;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s ease;
 }
 
-.consignment-content {
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.consignment h2 {
+.consignment-content h2 {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
 }
 
-.consignment h2 span {
-    color: var(--primary);
+.consignment-content h2 span {
+    color: var(--primary-color);
 }
 
-.consignment p {
+.consignment-content p {
     color: var(--text-muted);
-    margin-bottom: 2rem;
-}
-
-/* ==========================================
-   FOOTER
-========================================== */
-footer {
-    background: #0f172a;
-    color: var(--white);
-    padding: 4rem 5% 2rem;
-    text-align: center;
-}
-
-.footer-container {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 auto 30px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 50px 5% 20px;
+    text-align: center;
 }
 
 .footer-logo {
     font-size: 1.8rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 15px;
 }
 
 .footer-logo span {
-    color: var(--primary);
+    color: var(--primary-color);
 }
 
 .motivational-quote {
     font-style: italic;
-    color: #94a3b8;
-    font-size: 0.95rem;
-    margin-bottom: 2rem;
+    color: #aaa;
+    max-width: 500px;
+    margin: 0 auto 30px;
+    font-size: 0.9rem;
 }
 
 .copyright {
     font-size: 0.8rem;
-    color: #64748b;
-    border-top: 1px solid #1e293b;
-    padding-top: 1.5rem;
+    color: #777;
+    border-top: 1px solid #333;
+    padding-top: 20px;
 }
 
-/* ==========================================
-   BOTÓN FLOTANTE WHATSAPP
-========================================== */
+/* Botón Flotante de WhatsApp */
 .whatsapp-btn {
     position: fixed;
     bottom: 25px;
     right: 25px;
-    width: 60px;
-    height: 60px;
-    background: var(--accent);
+    background-color: #25d366;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-    z-index: 999;
-    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: transform 0.3s;
 }
 
 .whatsapp-btn:hover {
@@ -442,36 +437,7 @@ footer {
 }
 
 .whatsapp-icon {
-    width: 32px;
-    height: 32px;
-    fill: var(--white);
-}
-
-/* ==========================================
-   RESPONSIVE (DISPOSITIVOS MÓVILES)
-========================================== */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-    }
-
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.8rem;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .hero-buttons a {
-        width: 100%;
-    }
+    width: 30px;
+    height: 30px;
+    fill: #fff;
 }
