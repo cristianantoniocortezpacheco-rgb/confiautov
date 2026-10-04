@@ -1,127 +1,124 @@
-/* RESET & FUENTES */
+/* ==========================================
+   RESET Y VARIABLES GLOBALES
+========================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    scroll-behavior: smooth;
 }
 
 :root {
-    --bg-gray: #e5e7eb;            /* Fondo principal gris elegante */
-    --bg-card: #ffffff;            /* Fondo de tarjetas en blanco limpio */
-    --primary-blue: #0284c7;        /* Azul brillante principal */
-    --primary-hover: #0369a1;       /* Azul oscuro para hover */
-    --fb-blue: #1877f2;              /* Azul oficial de Facebook */
-    --fb-hover: #0d65d9;
-    --text-dark: #1f2937;           /* Texto principal oscuro */
-    --text-muted: #4b5563;          /* Texto secundario */
-    --border-color: #d1d5db;        /* Bordes sutiles */
-    --whatsapp-color: #25d366;
-    --whatsapp-hover: #1da851;
+    --primary: #0d47a1;
+    --primary-hover: #083275;
+    --accent: #25d366;
+    --facebook: #1877f2;
+    --bg-light: #f8fafc;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --white: #ffffff;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
 }
 
-body {
-    background-color: var(--bg-gray);
+html {
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
     color: var(--text-dark);
-    line-height: 1.6;
+    background-color: var(--bg-light);
 }
 
-/* NAVEGACIÓN */
+/* ==========================================
+   NAVEGACIÓN (HEADER)
+========================================== */
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 8%;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    position: fixed;
-    width: 100%;
-    top: 0;
+    padding: 1rem 5%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
     z-index: 1000;
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .logo {
-    font-size: 1.8rem;
-    font-weight: 800;
-    letter-spacing: -0.5px;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--text-dark);
 }
 
 .logo span {
-    color: var(--primary-blue);
+    color: var(--primary);
 }
 
-.navbar nav {
+.nav-links {
     display: flex;
     align-items: center;
     gap: 1.2rem;
 }
 
-.navbar a {
-    color: var(--text-muted);
+.nav-links a {
     text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: var(--transition);
 }
 
-.navbar a:hover {
-    color: var(--primary-blue);
+.nav-links a:hover {
+    color: var(--primary);
 }
 
 .btn-wa-nav {
-    color: var(--whatsapp-color) !important;
-    border: 1px solid var(--whatsapp-color);
+    color: var(--accent) !important;
+    border: 1px solid var(--accent);
     padding: 0.4rem 0.9rem;
-    border-radius: 6px;
-    transition: all 0.3s ease !important;
+    border-radius: 20px;
 }
 
 .btn-wa-nav:hover {
-    background-color: var(--whatsapp-color);
-    color: #ffffff !important;
+    background: var(--accent);
+    color: var(--white) !important;
 }
 
 .btn-fb-nav {
-    color: var(--fb-blue) !important;
-    border: 1px solid var(--fb-blue);
+    color: var(--facebook) !important;
+    border: 1px solid var(--facebook);
     padding: 0.4rem 0.9rem;
-    border-radius: 6px;
-    transition: all 0.3s ease !important;
+    border-radius: 20px;
 }
 
 .btn-fb-nav:hover {
-    background-color: var(--fb-blue);
-    color: #ffffff !important;
+    background: var(--facebook);
+    color: var(--white) !important;
 }
 
-.navbar .btn-nav {
-    background-color: var(--primary-blue);
-    color: #ffffff;
-    padding: 0.6rem 1.2rem;
-    border-radius: 6px;
-    font-weight: 600;
-    transition: background 0.3s ease, transform 0.2s ease;
+.btn-nav {
+    background: var(--primary);
+    color: var(--white) !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
 }
 
-.navbar .btn-nav:hover {
-    background-color: var(--primary-hover);
-    color: #ffffff;
-    transform: translateY(-2px);
+.btn-nav:hover {
+    background: var(--primary-hover);
 }
 
-/* HERO SECTION - CAMIONETA TOYOTA HILUX DE FONDO */
+/* ==========================================
+   HERO SECTION
+========================================== */
 .hero {
-    height: 100vh;
-    background: linear-gradient(180deg, rgba(229, 231, 235, 0.75) 0%, rgba(229, 231, 235, 0.92) 100%), 
-                url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    min-height: 90vh;
+    padding: 8rem 5% 4rem;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 5%;
+    background: linear-gradient(135deg, #e0f2fe 0%, #f8fafc 100%);
 }
 
 .hero-content {
@@ -129,196 +126,212 @@ body {
 }
 
 .hero h1 {
-    font-size: 3.2rem;
-    font-weight: 800;
+    font-size: 2.8rem;
     line-height: 1.2;
-    margin-bottom: 1.5rem;
-    color: var(--text-dark);
+    margin-bottom: 1.2rem;
 }
 
 .hero h1 span {
-    color: var(--primary-blue);
+    color: var(--primary);
 }
 
 .hero p {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     color: var(--text-muted);
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 1.2rem;
     justify-content: center;
+    gap: 1rem;
     flex-wrap: wrap;
 }
 
-.btn-primary, .btn-catalog, .btn-facebook {
-    padding: 0.9rem 1.8rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+.icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
 }
 
+/* BOTONES GENERALES */
 .btn-primary {
-    background-color: var(--primary-blue);
-    color: #ffffff;
-    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+    background: var(--primary);
+    color: var(--white);
+    padding: 0.8rem 1.8rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-hover);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.35);
+    background: var(--primary-hover);
+    transform: translateY(-2px);
 }
 
 .btn-catalog {
-    background-color: var(--whatsapp-color);
-    color: #ffffff;
-    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+    background: var(--accent);
+    color: var(--white);
+    padding: 0.8rem 1.8rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
 }
 
 .btn-catalog:hover {
-    background-color: var(--whatsapp-hover);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+    background: #1eb954;
+    transform: translateY(-2px);
 }
 
 .btn-facebook {
-    background-color: var(--fb-blue);
-    color: #ffffff;
-    box-shadow: 0 4px 14px rgba(24, 119, 242, 0.25);
+    background: var(--facebook);
+    color: var(--white);
+    padding: 0.8rem 1.8rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
 }
 
 .btn-facebook:hover {
-    background-color: var(--fb-hover);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(24, 119, 242, 0.35);
+    background: #166fe5;
+    transform: translateY(-2px);
 }
 
-.wa-icon, .fb-icon {
-    width: 20px;
-    height: 20px;
-    fill: #ffffff;
-}
-
-/* CATALOGO */
+/* ==========================================
+   INVENTARIO / CATÁLOGO
+========================================== */
 .inventory {
-    padding: 6rem 8%;
+    padding: 5rem 5%;
 }
 
 .section-title {
-    font-size: 2.5rem;
     text-align: center;
-    margin-bottom: 3.5rem;
-    color: var(--text-dark);
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
 }
 
 .section-title span {
-    color: var(--primary-blue);
+    color: var(--primary);
 }
 
 .grid-vehicles {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .card {
-    background-color: var(--bg-card);
-    border-radius: 12px;
+    background: var(--white);
+    border-radius: 16px;
     overflow: hidden;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px);
 }
 
-.card-img {
-    height: 220px;
-    background-size: cover;
-    background-position: center;
+.card-image {
     position: relative;
-    padding: 1rem;
+    height: 200px;
+    width: 100%;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .badge {
-    background-color: var(--primary-blue);
-    color: #ffffff;
+    position: absolute;
+    top: 15px;
+    right: 15px;
     padding: 0.3rem 0.8rem;
-    font-size: 0.8rem;
-    font-weight: 700;
-    border-radius: 4px;
-    text-transform: uppercase;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.badge-disponible {
+    background: var(--accent);
 }
 
 .badge-consignado {
-    background-color: #475569;
-    color: #ffffff;
+    background: #f59e0b;
 }
 
 .card-body {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .card-body h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    color: var(--text-dark);
 }
 
 .specs {
+    font-size: 0.85rem;
     color: var(--text-muted);
-    font-size: 0.9rem;
     margin-bottom: 1rem;
 }
 
 .price {
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--primary-blue);
+    color: var(--primary);
     margin-bottom: 1.2rem;
 }
 
 .btn-card {
-    display: block;
+    margin-top: auto;
     text-align: center;
-    background-color: #f3f4f6;
-    color: var(--primary-blue);
-    padding: 0.7rem;
-    border-radius: 6px;
+    background: var(--bg-light);
+    color: var(--text-dark);
     text-decoration: none;
+    padding: 0.7rem;
+    border-radius: 10px;
     font-weight: 600;
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+    transition: var(--transition);
 }
 
 .btn-card:hover {
-    background-color: var(--primary-blue);
-    color: #ffffff;
-    border-color: var(--primary-blue);
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
 }
 
-/* Tarjeta especial "Ver más" */
+/* Tarjeta "Ver más" */
 .card-see-more {
-    display: flex;
-    align-items: center;
+    background: linear-gradient(135deg, #0d47a1, #1e40af);
+    color: var(--white);
     justify-content: center;
+    align-items: center;
     text-align: center;
-    background-color: #f8fafc;
-    border: 2px dashed var(--primary-blue);
-}
-
-.card-more-body {
     padding: 2rem;
 }
 
@@ -327,22 +340,23 @@ body {
     margin-bottom: 1rem;
 }
 
-.card-more-body h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+.card-see-more h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
 }
 
-.card-more-body p {
+.card-see-more p {
     font-size: 0.9rem;
-    color: var(--text-muted);
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
 }
 
-/* CONSIGNACION */
+/* ==========================================
+   CONSIGNACIÓN
+========================================== */
 .consignment {
-    padding: 5rem 8%;
-    background-color: #d1d5db;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+    padding: 5rem 5%;
+    background: #f1f5f9;
     text-align: center;
 }
 
@@ -352,82 +366,90 @@ body {
 }
 
 .consignment h2 {
-    font-size: 2.2rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
-    color: var(--text-dark);
 }
 
 .consignment h2 span {
-    color: var(--primary-blue);
+    color: var(--primary);
 }
 
 .consignment p {
     color: var(--text-muted);
     margin-bottom: 2rem;
-    font-size: 1.1rem;
 }
 
-/* FOOTER */
+/* ==========================================
+   FOOTER
+========================================== */
 footer {
-    padding: 4rem 8% 2rem 8%;
-    background-color: #111827;
+    background: #0f172a;
+    color: var(--white);
+    padding: 4rem 5% 2rem;
     text-align: center;
-    color: #ffffff;
+}
+
+.footer-container {
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .footer-logo {
-    font-size: 1.6rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
 }
 
 .footer-logo span {
-    color: #38bdf8;
+    color: var(--primary);
 }
 
 .motivational-quote {
     font-style: italic;
-    font-size: 1.1rem;
-    color: #9ca3af;
-    max-width: 600px;
-    margin: 0 auto 2rem auto;
-    line-height: 1.5;
+    color: #94a3b8;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
 }
 
 .copyright {
-    color: #6b7280;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    color: #64748b;
+    border-top: 1px solid #1e293b;
+    padding-top: 1.5rem;
 }
 
-/* BOTON WHATSAPP FLOTANTE */
+/* ==========================================
+   BOTÓN FLOTANTE WHATSAPP
+========================================== */
 .whatsapp-btn {
     position: fixed;
     bottom: 25px;
     right: 25px;
     width: 60px;
     height: 60px;
-    background-color: var(--whatsapp-color);
+    background: var(--accent);
     border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-    z-index: 10000;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 999;
+    transition: var(--transition);
 }
 
 .whatsapp-btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
 }
 
 .whatsapp-icon {
-    width: 35px;
-    height: 35px;
-    fill: #ffffff;
+    width: 32px;
+    height: 32px;
+    fill: var(--white);
 }
 
-/* RESPONSIVO */
+/* ==========================================
+   RESPONSIVE (DISPOSITIVOS MÓVILES)
+========================================== */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -435,18 +457,21 @@ footer {
         padding: 1rem;
     }
 
-    .navbar nav {
-        gap: 0.6rem;
-        font-size: 0.85rem;
+    .nav-links {
         flex-wrap: wrap;
         justify-content: center;
+        gap: 0.8rem;
     }
 
     .hero h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 
     .hero-buttons {
         flex-direction: column;
+    }
+
+    .hero-buttons a {
+        width: 100%;
     }
 }

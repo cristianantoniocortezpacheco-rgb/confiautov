@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confi Auto V | Vehículos Usados y Consignación</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +15,7 @@
     <!-- Navegación -->
     <header class="navbar">
         <div class="logo">Confi <span>Auto V</span></div>
-        <nav>
+        <nav class="nav-links">
             <a href="#inicio">Inicio</a>
             <a href="#catalogo">Inventario</a>
             <a href="#consignacion">Consignación</a>
@@ -29,11 +33,11 @@
             <div class="hero-buttons">
                 <a href="#catalogo" class="btn-primary">Ver Inventario</a>
                 <a href="https://wa.me/c/584125974816" target="_blank" class="btn-catalog">
-                    <svg viewBox="0 0 32 32" class="wa-icon"><path d="M16 2a13 13 0 0 0-11.25 19.5L3 29l7.71-1.69A13 13 0 1 0 16 2zm0 23.6a10.5 10.5 0 0 1-5.36-1.46l-.38-.23-4 1 1.05-3.87-.25-.4A10.6 10.6 0 1 1 16 25.6zm5.83-7.92c-.32-.16-1.89-.93-2.18-1s-.51-.16-.72.16-.83 1-1 1.23-.39.24-.71.08a9 9 0 0 1-2.65-1.64 9.9 9.9 0 0 1-1.83-2.28c-.19-.32 0-.49.15-.65s.32-.37.48-.56a2.2 2.2 0 0 0 .32-.53.59.59 0 0 0 0-.56c-.08-.16-.72-1.74-1-2.38s-.54-.54-.74-.55h-.63a1.2 1.2 0 0 0-.88.41A3.68 3.68 0 0 0 5 12.5a6.4 6.4 0 0 0 1.34 3.4 14.7 14.7 0 0 0 5.63 4.97c2.32 1 2.8 1 3.78.91a3.2 3.2 0 0 0 2.12-1.49 2.6 2.6 0 0 0 .18-1.49c-.07-.12-.24-.2-.56-.36z"/></svg>
+                    <svg viewBox="0 0 32 32" class="icon"><path d="M16 2a13 13 0 0 0-11.25 19.5L3 29l7.71-1.69A13 13 0 1 0 16 2zm0 23.6a10.5 10.5 0 0 1-5.36-1.46l-.38-.23-4 1 1.05-3.87-.25-.4A10.6 10.6 0 1 1 16 25.6zm5.83-7.92c-.32-.16-1.89-.93-2.18-1s-.51-.16-.72.16-.83 1-1 1.23-.39.24-.71.08a9 9 0 0 1-2.65-1.64 9.9 9.9 0 0 1-1.83-2.28c-.19-.32 0-.49.15-.65s.32-.37.48-.56a2.2 2.2 0 0 0 .32-.53.59.59 0 0 0 0-.56c-.08-.16-.72-1.74-1-2.38s-.54-.54-.74-.55h-.63a1.2 1.2 0 0 0-.88.41A3.68 3.68 0 0 0 5 12.5a6.4 6.4 0 0 0 1.34 3.4 14.7 14.7 0 0 0 5.63 4.97c2.32 1 2.8 1 3.78.91a3.2 3.2 0 0 0 2.12-1.49 2.6 2.6 0 0 0 .18-1.49c-.07-.12-.24-.2-.56-.36z"/></svg>
                     Catálogo WhatsApp
                 </a>
                 <a href="https://www.facebook.com/marketplace/profile/100008211696465/?ref=permalink&mibextid=dXMIcH" target="_blank" class="btn-facebook">
-                    <svg viewBox="0 0 24 24" class="fb-icon"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    <svg viewBox="0 0 24 24" class="icon"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                     Marketplace
                 </a>
             </div>
@@ -43,44 +47,48 @@
     <!-- Sección de Inventario / Catálogo -->
     <section id="catalogo" class="inventory">
         <h2 class="section-title">Vehículos <span>Destacados</span></h2>
+        
         <div class="grid-vehicles">
             
             <!-- Vehículo 1 -->
             <div class="card">
-                <div class="card-img" style="background-image: url('');">
-                    <span class="badge">Disponible</span>
+                <div class="card-image">
+                    <img src="img/captivaimagen.jpeg" alt="Chevrolet Captiva 2008">
+                    <span class="badge badge-disponible">Disponible</span>
                 </div>
                 <div class="card-body">
                     <h3>Chevrolet Captiva 2008</h3>
                     <p class="specs">Automático • 123,000 km • Impecable</p>
-                    <p class="price">7900$</p>
-                    <a href="https://wa.me/584125974816?text=Hola,%20me%20interesa%" target="_blank" class="btn-card">Consultar por WhatsApp</a>
+                    <p class="price">$7,900</p>
+                    <a href="https://wa.me/584125974816?text=Hola,%20me%20interesa%20la%20Chevrolet%20Captiva%202008" target="_blank" class="btn-card">Consultar por WhatsApp</a>
                 </div>
             </div>
 
             <!-- Vehículo 2 -->
             <div class="card">
-                <div class="card-img" style="background-image: url('');">
-                    <span class="badge">Disponible</span>
+                <div class="card-image">
+                    <img src="img/journey.jpeg" alt="Dodge Journey 2009">
+                    <span class="badge badge-disponible">Disponible</span>
                 </div>
                 <div class="card-body">
                     <h3>Dodge Journey 2009</h3>
-                    <p class="specs">Automatico • 160,000 km • Excelente estado</p>
-                    <p class="price">7000$</p>
-                    <a href="https://wa.me/584125974816?text=Hola,%20me%20interesa%" target="_blank" class="btn-card">Consultar por WhatsApp</a>
+                    <p class="specs">Automático • 160,000 km • Excelente estado</p>
+                    <p class="price">$7,000</p>
+                    <a href="https://wa.me/584125974816?text=Hola,%20me%20interesa%20la%20Dodge%20Journey%202009" target="_blank" class="btn-card">Consultar por WhatsApp</a>
                 </div>
             </div>
 
             <!-- Vehículo 3 -->
             <div class="card">
-                <div class="card-img" style="background-image: url('');">
+                <div class="card-image">
+                    <img src="img/donfen.jpeg" alt="Dongfeng S30 2013">
                     <span class="badge badge-consignado">Consignación</span>
                 </div>
                 <div class="card-body">
                     <h3>Dongfeng S30 2013</h3>
-                    <p class="specs">Sincronico • Gasolina • Lista para traspaso</p>
-                    <p class="price">6500$</p>
-                    <a href="https://wa.me/584125974816?text=Hola,%20me%20interesa" target="_blank" class="btn-card">Consultar por WhatsApp</a>
+                    <p class="specs">Sincrónico • Gasolina • Lista para traspaso</p>
+                    <p class="price">$6,500</p>
+                    <a href="https://wa.me/584125974816?text=Hola,%20me%20interesa%20el%20Dongfeng%20S30%202013" target="_blank" class="btn-card">Consultar por WhatsApp</a>
                 </div>
             </div>
 
@@ -90,7 +98,7 @@
                     <div class="more-icon">📱</div>
                     <h3>¿Buscas más opciones?</h3>
                     <p>Revisa nuestro catálogo completo y actualizado al instante directamente en WhatsApp o Facebook Marketplace.</p>
-                    <a href="https://wa.me/c/584125974816" target="_blank" class="btn-primary" style="margin-top:15px;">Ver Catálogo WhatsApp</a>
+                    <a href="https://wa.me/c/584125974816" target="_blank" class="btn-primary">Ver Catálogo WhatsApp</a>
                 </div>
             </div>
 
